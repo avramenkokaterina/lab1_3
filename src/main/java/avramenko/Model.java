@@ -14,7 +14,7 @@ public class Model {
         Car[] cars = new Car[length];
     }
 
-    public Car[] addCars(Car... cars) {
+    public boolean addCars(Car... cars) {
         if (this.cars != null && cars != null) {
             if (cars.length <= length - currentLength) {
                 for (int i = 0; i < cars.length; i++) {
@@ -30,21 +30,23 @@ public class Model {
                     currentLength++;
                 }
             }
+            return true;
         } else {
             if (this.cars == null && cars != null) {
                 this.cars = cars;
                 this.length = cars.length;
                 this.currentLength = this.length;
             }
+            return false;
+
         }
-        return cars;
     }
 
     public Car[] getCars() {
         return cars;
     }
 
-    public Car[] getListOfCarsBrand(String carBrand, View view) {
+    public Car[] getListOfCarsBrand(String carBrand) {
         if (cars != null && carBrand != null) {
             Car[] result = new Car[this.currentLength];
             int counter = 0;
@@ -54,15 +56,14 @@ public class Model {
                     counter++;
                 }
             }
-            result = Arrays.copyOf(result, counter + 1);
+            result = Arrays.copyOf(result, counter );
             return result;
         } else {
-            view.printMessage(14);
             return null;
         }
     }
 
-    public Car[] getListOfCarsYears(String carModel, int year, View view) {
+    public Car[] getListOfCarsYears(String carModel, int year) {
         if (cars != null && carModel != null && year != 0) {
             Car[] result = new Car[this.currentLength];
             int counter = 0;
@@ -72,15 +73,14 @@ public class Model {
                     counter++;
                 }
             }
-            result = Arrays.copyOf(result, counter + 1);
+            result = Arrays.copyOf(result, counter);
             return result;
         } else {
-            view.printMessage(14);
             return null;
         }
     }
 
-    public Car[] getListOfCarsPrice(int year, int carPrice, View view) {
+    public Car[] getListOfCarsPrice(int year, int carPrice) {
         if (cars != null && carPrice >= 0 && year != 0) {
             Car[] result = new Car[this.currentLength];
             int counter = 0;
@@ -90,10 +90,9 @@ public class Model {
                     counter++;
                 }
             }
-            result = Arrays.copyOf(result, counter + 1);
+            result = Arrays.copyOf(result, counter);
             return result;
         } else {
-            view.printMessage(14);
             return null;
         }
     }

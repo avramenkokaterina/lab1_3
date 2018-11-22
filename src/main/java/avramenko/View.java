@@ -5,62 +5,60 @@ import java.util.Scanner;
 public class View {
 
     public void menu() {
-        System.out.println("0. Generate car list");
-        System.out.println("1. Create car list");
-        System.out.println("2. Exit");
+        System.out.println("1. Generate car list");
+        System.out.println("2. Create car list");
+        System.out.println("3. Exit");
     }
 
     public void subMenu(){
-        System.out.println("0. Get list of cars of my brand");
-        System.out.println("1. Get list of cars of my model which are used for more than N years");
-        System.out.println("2. Get list of cars of my year that cost for more my price");
-        System.out.println("3. Return to menu");
-        System.out.println("4. Exit");
+        System.out.println("1. Get list of cars of my brand");
+        System.out.println("2. Get list of cars of my model which are used for more than N years");
+        System.out.println("3. Get list of cars of my year that cost for more my price");
+        System.out.println("4. Return to menu");
+        System.out.println("5. Exit");
     }
 
-    public void printMessage(int param) {
-        switch (param) {
-            case 1:
-                System.out.println("How many cars do you want to add?");
+    public void printMessage(Messages messages){
+        switch(messages){
+            case CHOOSE:
+                System.out.println("Choose number: ");
                 break;
-            case 2:
-                System.out.println("Enter name of brand: ");
+            case ENTER_LENGTH:
+                System.out.println("How many cars do you want to add? ");
                 break;
-            case 3:
-                System.out.println("Enter name of model: ");
-                break;
-            case 4:
-                System.out.println("Enter number of years: ");
-                break;
-            case 5:
-                System.out.println("Enter price: ");
-                break;
-            case 6:
-                System.out.println("I can generate 10 cars. How many cars do you want?: ");
-                break;
-            case 7:
+            case ENTER_ID:
                 System.out.print("Identification Number: ");
                 break;
-            case 8:
-                System.out.print("Brand: ");
-                break;
-            case 9:
-                System.out.print("Model: ");
-                break;
-            case 10:
+            case ENTER_YEAR:
                 System.out.print("Year: ");
                 break;
-            case 11:
+            case ENTER_BRAND:
+                System.out.print("Brand: ");
+                break;
+            case ENTER_COLOR:
                 System.out.print("Color: ");
                 break;
-            case 12:
-                System.out.print("Number: ");
+            case ENTER_MODEL:
+                System.out.print("Model: ");
                 break;
-            case 13:
+            case ENTER_PRICE:
                 System.out.print("Price, $: ");
                 break;
-            case 14:
-                System.out.println("Sorry, no results.");
+            case ENTER_NUMBER:
+                System.out.print("Number: ");
+                break;
+            case ENTER_BRAND_LONG:
+                System.out.println("Enter name of brand: ");
+                break;
+            case ENTER_MODEL_LONG:
+                System.out.println("Enter name of model: ");
+                break;
+            case ENTER_PRICE_LONG:
+                System.out.println("Enter price: ");
+                break;
+            case ENTER_YEARS_LONG:
+                System.out.println("Enter number of years: ");
+                break;
             default:
                 break;
         }
@@ -70,19 +68,18 @@ public class View {
         int n;
         Scanner sc = new Scanner(System.in);
         do {
-            System.out.println();
             while (!sc.hasNextInt()) {
                 switch (param) {
                     case 1:
-                        System.out.println("Not a number. Please, choose number from 0 to 2.");
+                        System.out.println("Not a number. Please, choose number from 1 to 3.");
                         sc.next();
                         break;
                     case 2:
-                        System.out.println("Not a number. Please, choose number from 1 to 10.");
+                        System.out.println("Not a number. Please, choose number from 1 to 5.");
                         sc.next();
                         break;
                     case 3:
-                        System.out.println("Not a number. Please, choose number from 0 to 4.");
+                        System.out.println("Not a number. Please, choose number from 1 to 10.");
                         sc.next();
                         break;
                     case 4:
